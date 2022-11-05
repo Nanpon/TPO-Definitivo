@@ -1,94 +1,78 @@
 body{
-    font-family: 'Montserrat', sans-serif;
+    max-width: 100%;
 }
 
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    max-width: 100%;
 }
 
 h3{
     text-align: center;
+    font-weight: bold;
+    margin: 10px;
 }
 
 #seccion1{
     display: grid;
-    grid-template-columns: 40% 50%;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 30% 60%;
+    grid-template-rows: 30% 60%;
+    grid-template-areas:    "circulo1Titulo1 parrafo1"
+                            "circulo2Titulo2 parrafo2";
     justify-content: center;
     align-items: center;
-    column-gap: 2%;
-    row-gap: 5%;
-    margin: 5% 0px;
+    column-gap: 5%;
+    row-gap: 70px;
+    margin: 100px 0px;
     width: 100%;
+    height: 400px;
 }
 
-#circulo1{
-    background-color: #305B73;
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
-    grid-column: 1/span 1;
-    grid-row: 1/span 1;
-}
-
-#titulo1{
-    grid-column: 1/span 1;
-    grid-row: 1/span 1;
+#circulo-titulo1{
+    grid-area: circulo1Titulo1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: auto;
 }
 
 #parrafo1{
-    grid-column: 2/span 1;
-    grid-row: 1/span 1;
+    grid-area: parrafo1;
+    width: 90%;
 }
 
-#circulo2{
-    background-color: #305B73;
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
-    grid-column: 1/span 1;
-    grid-row: 2/span 1;
-}
-
-#titulo2{
-    grid-column: 1/span 1;
-    grid-row: 2/span 1;
+#circulo-titulo2{
+    grid-area: circulo2Titulo2;
+    display: flex;
+    justify-content: flex-end;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
 }
 
 #parrafo2{
-    grid-column: 2/span 1;
-    grid-row: 2/span 1;
+    grid-area: parrafo2;
+    width: 90%;
 } 
 
 #seccion2{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
-    justify-content: center;
-    justify-items: center;
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 3%;
     width: 60%;
+    height: auto;
     background-color: #E4C000;
+    border: #E4C000;
     border-radius: 10px;
-    margin: 7% auto;
-}
-
-#seccion2-articulo1{
-    grid-column: 1/span 1;
-    grid-row: 1/span 1;
-}
-
-#seccion2-articulo2{
-    grid-column: 2/span 1;
-    grid-row: 1/span 1;
+    margin: 50px 0px 100px 0px;
 }
 
 form label{
-    width: 100%;
+    width: 150px;
     font-weight: bold;
     display: inline-block;
 }
@@ -97,17 +81,17 @@ form input[type="text"],
 form input[type="number"],
 form input[type="email"],
 form input[type="tel"]{
-    width: 100%;
+    width: 90%;
     padding: 3px 10px;
     border: 1px solid  #000;
     border-radius: 3px;
     background-color: #ffffff;
-    margin: 8px 0;
+    margin: 10px 0;
     display: inline-block;
 }
 
 textarea{
-	width: 100%;
+	width: 95%;
 	height: 80px;
 	border:1px solid #f6f6f6;
 	border-radius:3px;
@@ -118,16 +102,61 @@ textarea{
 }
 
 form input[type="submit"]{
-	width:100%;
+	width: 97%;
     height: 25px;
 	margin: 10px 0px;
-	border:1px solid #000;
-	border-radius:5px;
-	display:block;
-	color:#fff;
-	background-color:#000;
+	border: 1px solid #000;
+	border-radius: 5px;
+	display: block;
+	color: #fff;
+	background-color: #000;
 } 
 
 form input[type="submit"]:hover{
 	cursor:pointer;
+}
+
+iframe{
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    #circulo-titulo1{
+        flex-direction: column;
+    }
+
+    #circulo-titulo2{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #seccion1{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:    "circulo1Titulo1"
+                                "parrafo1"
+                                "circulo2Titulo2"
+                                "parrafo2";
+        justify-items: center;
+        row-gap: 20px;
+        width: 80%;
+        margin: 50px 0px;
+        height: 1000px;
+    }
+    
+    #circulo-titulo1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #circulo-titulo2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #seccion2{
+        flex-direction: column;
+    }
 }
